@@ -13,3 +13,11 @@
 /home/vlad/facultate/DAW_Project/obj/Debug/net6.0/DAW_Project.pdb
 /home/vlad/facultate/DAW_Project/obj/Debug/net6.0/DAW_Project.genruntimeconfig.cache
 /home/vlad/facultate/DAW_Project/obj/Debug/net6.0/ref/DAW_Project.dll
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.csproj.AssemblyReference.cache
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.GeneratedMSBuildEditorConfig.editorconfig
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.AssemblyInfoInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.AssemblyInfo.cs
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.csproj.CoreCompileInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.dll
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/refint/DAW_Project.dll
+/home/vlad/facultate/DAW_Project/Backend/obj/Debug/net6.0/DAW_Project.pdb
