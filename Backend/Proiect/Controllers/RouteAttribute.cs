@@ -1,6 +1,6 @@
 using System;
 
-namespace Proiect1.Controllers
+namespace Proiect.Controllers
 {
     internal class RouteAttribute : Attribute
     {

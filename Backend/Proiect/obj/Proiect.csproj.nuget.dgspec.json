@@ -4,14 +4,81 @@
     "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj": {}
   },
   "projects": {
-    "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj": {
+    "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/Proiect.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj",
-        "projectName": "Proiect",
-        "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj",
+        "projectUniqueName": "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/Proiect.BLL.csproj",
+        "projectName": "Proiect.BLL",
+        "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/Proiect.BLL.csproj",
         "packagesPath": "/home/vlad/.nuget/packages/",
-        "outputPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect/obj/",
+        "outputPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/vlad/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj": {
+                "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.404/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj",
+        "projectName": "Proiect.DAL",
+        "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj",
+        "packagesPath": "/home/vlad/.nuget/packages/",
+        "outputPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vlad/.nuget/NuGet/NuGet.Config"
@@ -38,21 +105,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.13, )"
-            },
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -60,25 +115,21 @@
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.13, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.13, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.13, )"
+              "version": "[7.0.1, )"
             },
-            "Newtonsoft.Json": {
+            "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[13.0.1, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[7.0.1, )"
             }
           },
           "imports": [
@@ -93,9 +144,102 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.404/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj",
+        "projectName": "Proiect",
+        "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj",
+        "packagesPath": "/home/vlad/.nuget/packages/",
+        "outputPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/vlad/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/Proiect.BLL.csproj": {
+                "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/Proiect.BLL.csproj"
+              },
+              "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj": {
+                "projectPath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
             },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
