@@ -17,7 +17,7 @@ namespace Proiect.DAL
             _roleManager = roleManager;
         }
 
-        public async void CreateRoles()
+        public void CreateRoles()
         {
             string[] roleNames = {
                                 "Admin",
