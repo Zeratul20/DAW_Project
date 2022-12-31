@@ -2,6 +2,10 @@ export type State = {
   designers: { items: Designers; triggers: number };
   clients: { items: Clients; triggers: number };
   collections: { items: Collections; triggers: number };
+  dashboard: {
+    registration: { usernameInput: string; passwordInput: string };
+    login: { usernameInput: string; passwordInput: string };
+  };
 };
 
 export type Address = {
