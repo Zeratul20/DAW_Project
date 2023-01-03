@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style.css";
+// import "../style.css";
 export const RegistrationForm: view = ({
   updateUsernameInput = update.dashboard.registration.usernameInput,
   updatePasswordInput = update.dashboard.registration.passwordInput,
