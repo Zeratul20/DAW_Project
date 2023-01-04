@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase
     {
@@ -23,7 +22,7 @@ namespace Proiect.Controllers
         }
 
         // Post - adaugam un client nou
-        [HttpPost]
+        [HttpPost("api/[controller]")]
         [Authorize("Admin")]
         public async Task<IActionResult> CreateDesigner(ClientPostModel model)
         {
@@ -45,7 +44,7 @@ namespace Proiect.Controllers
         }
 
         // Get All
-        [HttpGet("")]
+        [HttpGet("api/[controller]")]
         public async Task<IActionResult> GetAllClients()
         {
             var clients = await _context.Clients.OrderBy(x => x.Name).ToListAsync();
@@ -54,7 +53,7 @@ namespace Proiect.Controllers
         }
 
         // Get by id
-        [HttpGet("byId/{id}")]
+        [HttpGet("api/[controller]/byId/{id}")]
         public async Task<IActionResult> GetClients([FromRoute] int id) // id ul este al unui designer !!!!
         {
 
@@ -71,7 +70,7 @@ namespace Proiect.Controllers
       
 
         // Put - facem update la numarul de telefon al unui client identificat dupa id
-        [HttpPut] 
+        [HttpPut("api/[controller]")] 
         [Authorize("Admin")]
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] string phone)
         { 
@@ -90,7 +89,7 @@ namespace Proiect.Controllers
 
 
         // Delete - stergem clientii cu un nume dat ca parametru
-        [HttpDelete]
+        [HttpDelete("api/[controller]")]
         [Authorize("Admin")]
         public async Task<IActionResult> DeleteClient(int id)
         {

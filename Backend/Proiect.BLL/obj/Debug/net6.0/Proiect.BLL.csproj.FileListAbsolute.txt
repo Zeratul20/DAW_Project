@@ -1,0 +1,15 @@
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/bin/Debug/net6.0/Proiect.BLL.deps.json
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/bin/Debug/net6.0/Proiect.BLL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/bin/Debug/net6.0/Proiect.BLL.pdb
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/bin/Debug/net6.0/Proiect.DAL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/bin/Debug/net6.0/Proiect.DAL.pdb
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.csproj.AssemblyReference.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.GeneratedMSBuildEditorConfig.editorconfig
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.AssemblyInfoInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.AssemblyInfo.cs
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.csproj.CoreCompileInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.csproj.CopyComplete
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/refint/Proiect.BLL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/Proiect.BLL.pdb
+/home/vlad/facultate/DAW_Project/Backend/Proiect.BLL/obj/Debug/net6.0/ref/Proiect.BLL.dll

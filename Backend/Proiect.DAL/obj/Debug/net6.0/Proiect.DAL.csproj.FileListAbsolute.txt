@@ -1,0 +1,14 @@
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/bin/Debug/net6.0/Proiect.DAL.deps.json
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/bin/Debug/net6.0/Proiect.DAL.runtimeconfig.json
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/bin/Debug/net6.0/Proiect.DAL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/bin/Debug/net6.0/Proiect.DAL.pdb
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.csproj.AssemblyReference.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.GeneratedMSBuildEditorConfig.editorconfig
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.AssemblyInfoInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.AssemblyInfo.cs
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.csproj.CoreCompileInputs.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/refint/Proiect.DAL.dll
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.pdb
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/Proiect.DAL.genruntimeconfig.cache
+/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/obj/Debug/net6.0/ref/Proiect.DAL.dll

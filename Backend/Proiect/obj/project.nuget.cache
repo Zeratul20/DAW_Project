@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "b/XyDZOe/nUKL9Vhy7WZaaCgQGs7WRl+TE6JSy5cwOHqEq+FVOCL7y/BEuofB6X8TjPJpEcYBfwp1aEjz2VarA==",
-  "success": false,
+  "dgSpecHash": "Zpw6lT1gqDuvF18EUUnH7k4N8nyjiqCj8Kp4TTqp7oIhelRqFT1dLm1yk5Joj/MZHXKgPM/iStHD9kxQAo00og==",
+  "success": true,
   "projectFilePath": "/home/vlad/facultate/DAW_Project/Backend/Proiect/Proiect.csproj",
   "expectedPackageFiles": [
     "/home/vlad/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
@@ -10,6 +10,9 @@
     "/home/vlad/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnet.identity.core/2.2.3/microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnet.identity.entityframework/2.2.3/microsoft.aspnet.identity.entityframework.2.2.3.nupkg.sha512",
+    "/home/vlad/.nuget/packages/microsoft.aspnet.webapi.client/5.2.9/microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
+    "/home/vlad/.nuget/packages/microsoft.aspnet.webapi.core/5.2.9/microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
+    "/home/vlad/.nuget/packages/microsoft.aspnet.webapi.webhost/5.2.9/microsoft.aspnet.webapi.webhost.5.2.9.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore/2.2.0/microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.antiforgery/2.2.0/microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -39,6 +42,7 @@
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.httpoverrides/2.2.0/microsoft.aspnetcore.httpoverrides.2.2.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.httpspolicy/2.2.0/microsoft.aspnetcore.httpspolicy.2.2.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.identity/2.2.0/microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
+    "/home/vlad/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.0/microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.12/microsoft.aspnetcore.jsonpatch.6.0.12.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.localization/2.2.0/microsoft.aspnetcore.localization.2.2.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.aspnetcore.mvc/2.2.0/microsoft.aspnetcore.mvc.2.2.0.nupkg.sha512",
@@ -245,33 +249,6 @@
   ],
   "logs": [
     {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package AttributeRouting.WebApi with version (>= 6.0.0)\n  - Found 35 version(s) in nuget.org [ Nearest version: 3.5.6 ]",
-      "libraryId": "AttributeRouting.WebApi",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package Microsoft.AspNet.WebApi with version (>= 6.0.0)\n  - Found 26 version(s) in nuget.org [ Nearest version: 5.2.9 ]",
-      "libraryId": "Microsoft.AspNet.WebApi",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package Microsoft.AspNet.WebApi.WebHost with version (>= 6.0.0)\n  - Found 26 version(s) in nuget.org [ Nearest version: 5.2.9 ]",
-      "libraryId": "Microsoft.AspNet.WebApi.WebHost",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
@@ -287,6 +264,26 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.Identity.EntityFramework 2.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Identity.EntityFramework",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.WebHost 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.WebHost",
       "targetGraphs": [
         "net6.0"
       ]

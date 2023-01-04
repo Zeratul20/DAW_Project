@@ -141,6 +141,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.1, )"
@@ -225,21 +229,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AttributeRouting.WebApi": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
-            },
-            "Microsoft.AspNet.WebApi": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.AspNet.WebApi.WebHost": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
