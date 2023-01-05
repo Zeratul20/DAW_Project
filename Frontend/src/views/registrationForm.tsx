@@ -3,12 +3,42 @@ import React, { useState } from "react";
 export const RegistrationForm: view = ({
   updateUsernameInput = update.dashboard.registration.usernameInput,
   updatePasswordInput = update.dashboard.registration.passwordInput,
+  usernameInput = get.dashboard.registration.usernameInput,
+  passwordInput = get.dashboard.registration.passwordInput,
+  updateSubmitted = update.dashboard.registration.submitted,
+  submitted = get.dashboard.registration.submitted,
 }) => {
   const handleUsernameChange = (event) => {
     updateUsernameInput.set(event.target.value);
   };
+
   const handlePasswordChange = (event) => {
     updatePasswordInput.set(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Username before: ", !usernameInput.value());
+    if (!usernameInput.value() || !passwordInput.value())
+      return (
+        <div className="error">
+          <p>Please enter all the fields</p>
+        </div>
+      );
+
+    console.log("Username after: ", usernameInput.value());
+    updateSubmitted.set(true);
+    console.log("Submitted");
+    return (
+      <div
+        className="success"
+        style={{
+          display: submitted.value() ? "" : "none",
+        }}
+      >
+        <p>User {usernameInput.value()} successfully registered!!</p>
+      </div>
+    );
   };
   return (
     <div className="form">
@@ -37,20 +67,9 @@ export const RegistrationForm: view = ({
             onChange={handlePasswordChange}
           />
         </div>
-        <div className="confirm-password">
-          <label className="form__label" htmlFor="confirmPassword">
-            Confirm Password{" "}
-          </label>
-          <input
-            className="form__input"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-          />
-        </div>
       </div>
-      <div className="footer">
-        <button type="submit" className="btn">
+      <div className="submit">
+        <button type="submit" onClick={handleSubmit} className="btn">
           Register
         </button>
       </div>

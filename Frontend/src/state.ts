@@ -3,8 +3,12 @@ export type State = {
   clients: { items: Clients; triggers: number };
   collections: { items: Collections; triggers: number };
   dashboard: {
-    registration: { usernameInput: string; passwordInput: string };
-    login: { usernameInput: string; passwordInput: string };
+    registration: {
+      usernameInput: string;
+      passwordInput: string;
+      submitted: boolean;
+    };
+    login: { usernameInput: string; passwordInput: string; submitted: boolean };
   };
 };
 
