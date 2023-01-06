@@ -25,6 +25,7 @@ using Proiect.DAL.Entities;
 using Proiect.BLL.Managers;
 using Proiect.BLL.Interfaces;
 using Proiect.BLL.Helpers;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace Proiect
 {
@@ -53,7 +54,9 @@ namespace Proiect
 
             // services.AddControllers();
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnString")));
+            // services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnString")));
+            var connectionString = Configuration.GetConnectionString("ConnString");
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
             services.AddTransient<IAuthManager, AuthManager>();
             services.AddTransient<ITokenHelper, TokenHelper>();
             services.AddTransient<InitialSeed>();
@@ -101,20 +104,20 @@ namespace Proiect
                     };
                 });
 
-            
+
             services.AddAuthorization(opt =>
             {
                 opt.AddPolicy("Admin", policy => policy.RequireRole("Admin").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
                 opt.AddPolicy("Designer", policy => policy.RequireRole("Designer").RequireAuthenticatedUser().AddAuthenticationSchemes("AuthScheme").Build());
             });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, InitialSeed initialSeed)
         {
             if (env.IsDevelopment())
-            { 
+            {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proiect v1"));

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4Kzo85Vz57GJTFNdH7juKgH17QabbfmqyQXQIjjPT6EJojBIXwiP6agtc0HUc4hy5IPc1p4SlXjs7FFR1c+CxA==",
+  "dgSpecHash": "/4DgMTPme0QVaUFN5A48iKgjHZG3RTMlzUcOOrG7DB7GrjynSg7GP+HzFHfBG07WKNAdTxGeXZnsCxr4p4HxuA==",
   "success": true,
   "projectFilePath": "/home/vlad/facultate/DAW_Project/Backend/Proiect.DAL/Proiect.DAL.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,8 @@
     "/home/vlad/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/vlad/.nuget/packages/npgsql/7.0.1/npgsql.7.0.1.nupkg.sha512",
+    "/home/vlad/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.1/npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
     "/home/vlad/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/home/vlad/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/vlad/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
