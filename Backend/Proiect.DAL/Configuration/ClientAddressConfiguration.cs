@@ -15,7 +15,7 @@ namespace Proiect.DAL.Configurations
         public void Configure(EntityTypeBuilder<ClientAddress> builder)
         {
             builder.Property(x => x.City)
-                .HasColumnType("nvarchar(100)")
+                .HasColumnType("varchar(100)")
                 .HasMaxLength(100);
         }
     }

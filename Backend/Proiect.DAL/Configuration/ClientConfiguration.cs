@@ -13,8 +13,8 @@ namespace Proiect.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.Property(x => x.Name).HasColumnType("nvarchar(100)").HasMaxLength(100);
-            builder.Property(x => x.Phone).HasColumnType("nvarchar(11)").HasMaxLength(11);
+            builder.Property(x => x.Name).HasColumnType("varchar(100)").HasMaxLength(100);
+            builder.Property(x => x.Phone).HasColumnType("varchar(11)").HasMaxLength(11);
         }
     }
 }

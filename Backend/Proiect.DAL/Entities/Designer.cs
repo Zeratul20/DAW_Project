@@ -17,6 +17,5 @@ namespace Proiect.DAL.Entities
 
         public virtual DesignerAddress DesignerAddress { get; set; } // 1:1
         public virtual ICollection<DesignerClient> DesignerClients { get; set; } // " M : M "
-        public virtual ICollection<DesignerCollection> DesignerCollections { get; set; } // " M : M "
     }
 }

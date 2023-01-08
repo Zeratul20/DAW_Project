@@ -12,7 +12,7 @@ using Proiect.DAL;
 namespace Proiect.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230106191720_AddedDesignerTable")]
+    [Migration("20230107135019_AddedDesignerTable")]
     partial class AddedDesignerTable
     {
         /// <inheritdoc />
@@ -160,29 +160,6 @@ namespace Proiect.DAL.Migrations
                     b.ToTable("ClientAddresses");
                 });
 
-            modelBuilder.Entity("Proiect.DAL.Entities.Collection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CollectionName")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<int>("NumberOfItems")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Collections");
-                });
-
             modelBuilder.Entity("Proiect.DAL.Entities.Designer", b =>
                 {
                     b.Property<int>("Id")
@@ -254,29 +231,6 @@ namespace Proiect.DAL.Migrations
                     b.HasIndex("DesignerId");
 
                     b.ToTable("DesignerClients");
-                });
-
-            modelBuilder.Entity("Proiect.DAL.Entities.DesignerCollection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CollectionId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("DesignerId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CollectionId");
-
-                    b.HasIndex("DesignerId");
-
-                    b.ToTable("DesignerCollections");
                 });
 
             modelBuilder.Entity("Proiect.DAL.Entities.Role", b =>
@@ -480,25 +434,6 @@ namespace Proiect.DAL.Migrations
                     b.Navigation("Designer");
                 });
 
-            modelBuilder.Entity("Proiect.DAL.Entities.DesignerCollection", b =>
-                {
-                    b.HasOne("Proiect.DAL.Entities.Collection", "Collection")
-                        .WithMany("DesignerCollections")
-                        .HasForeignKey("CollectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Proiect.DAL.Entities.Designer", "Designer")
-                        .WithMany("DesignerCollections")
-                        .HasForeignKey("DesignerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Collection");
-
-                    b.Navigation("Designer");
-                });
-
             modelBuilder.Entity("Proiect.DAL.Entities.UserRole", b =>
                 {
                     b.HasOne("Proiect.DAL.Entities.Role", null)
@@ -533,18 +468,11 @@ namespace Proiect.DAL.Migrations
                     b.Navigation("DesignerClients");
                 });
 
-            modelBuilder.Entity("Proiect.DAL.Entities.Collection", b =>
-                {
-                    b.Navigation("DesignerCollections");
-                });
-
             modelBuilder.Entity("Proiect.DAL.Entities.Designer", b =>
                 {
                     b.Navigation("DesignerAddress");
 
                     b.Navigation("DesignerClients");
-
-                    b.Navigation("DesignerCollections");
                 });
 
             modelBuilder.Entity("Proiect.DAL.Entities.Role", b =>
