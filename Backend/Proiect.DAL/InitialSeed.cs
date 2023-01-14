@@ -17,20 +17,22 @@ namespace Proiect.DAL
             _roleManager = roleManager;
         }
 
-        public void CreateRoles()
+        public async void CreateRoles()
         {
             string[] roleNames = {
                                 "Admin",
                                 "Designer"
                                 };
-
+            // int id = 1;
             foreach (var roleName in roleNames)
             {
                 var role = new Role
                 {
-                    Name = roleName
+                    Name = roleName,
+                    // Id = id++
                 };
                 _roleManager.CreateAsync(role).Wait();
+                //break;
             }
         }
     }

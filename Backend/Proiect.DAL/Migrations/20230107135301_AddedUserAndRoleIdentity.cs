@@ -36,15 +36,15 @@ namespace Proiect.DAL.Migrations
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     PasswordHash = table.Column<string>(type: "varchar(1000)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "varchar(1000)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "varchar(1000)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "varchar(1000)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "boolean", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "date", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     AccessFailedCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -223,10 +223,6 @@ namespace Proiect.DAL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_DesignerAwards_Designers_DesignerId",
-                table: "DesignerAwards");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

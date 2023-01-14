@@ -15,8 +15,5 @@ namespace Proiect.DAL.Models
 
         public int AddressId { get; set; }
         public int ClientsId { get; set; }
-        public int AwardId { get; set; }
-        public int CollectionId { get; set; }
-        public string CollectionName { get; set; }
     }
 }

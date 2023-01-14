@@ -67,11 +67,16 @@ namespace Proiect.BLL.Managers
         {
             var user = new User
             {
+                Id = registerModel.Id,
                 Email = registerModel.Email,
                 UserName = registerModel.Email
             };
 
             var result = await _userManager.CreateAsync(user, registerModel.Password);
+
+            Console.WriteLine("Register Auth Rezult");
+
+            Console.WriteLine(result);
 
             if (result.Succeeded)
             {

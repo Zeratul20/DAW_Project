@@ -54,7 +54,6 @@ namespace Proiect
 
             // services.AddControllers();
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            // services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnString")));
             var connectionString = Configuration.GetConnectionString("ConnString");
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
             services.AddTransient<IAuthManager, AuthManager>();
@@ -64,7 +63,32 @@ namespace Proiect
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Proiect", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
             });
+
+
 
             // identity
             services.AddIdentity<User, Role>()
@@ -123,6 +147,7 @@ namespace Proiect
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proiect v1"));
             }
 
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -135,6 +160,7 @@ namespace Proiect
             {
                 endpoints.MapControllers();
             });
+            //return;
 
             initialSeed.CreateRoles();
         }

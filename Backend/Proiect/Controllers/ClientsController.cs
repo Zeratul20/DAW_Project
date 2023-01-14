@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
+    [Route("api/clients")]
     [ApiController]
     public class ClientsController : ControllerBase
     {
@@ -22,9 +23,9 @@ namespace Proiect.Controllers
         }
 
         // Post - adaugam un client nou
-        [HttpPost("api/[controller]")]
-        [Authorize("Admin")]
-        public async Task<IActionResult> CreateDesigner(ClientPostModel model)
+        [HttpPost]
+        // [Authorize("Admin")]
+        public async Task<IActionResult> CreateClient(ClientPostModel model)
         {
             if (string.IsNullOrEmpty(model.Name))
             {
@@ -33,6 +34,7 @@ namespace Proiect.Controllers
 
             var client = new Client()
             {
+                Id = model.Id,
                 Name = model.Name,
                 Phone = model.Phone
             };
@@ -44,7 +46,7 @@ namespace Proiect.Controllers
         }
 
         // Get All
-        [HttpGet("api/[controller]")]
+        [HttpGet("")]
         public async Task<IActionResult> GetAllClients()
         {
             var clients = await _context.Clients.OrderBy(x => x.Name).ToListAsync();
@@ -53,7 +55,7 @@ namespace Proiect.Controllers
         }
 
         // Get by id
-        [HttpGet("api/[controller]/byId/{id}")]
+        [HttpGet("byId/{id}")]
         public async Task<IActionResult> GetClients([FromRoute] int id) // id ul este al unui designer !!!!
         {
 
@@ -67,13 +69,13 @@ namespace Proiect.Controllers
             return Ok(clients);
         }
 
-      
+
 
         // Put - facem update la numarul de telefon al unui client identificat dupa id
-        [HttpPut("api/[controller]")] 
+        [HttpPut]
         [Authorize("Admin")]
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] string phone)
-        { 
+        {
             var client = await _context.Clients.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             client.Phone = phone; // nr de telefon introdus de noi
@@ -89,7 +91,7 @@ namespace Proiect.Controllers
 
 
         // Delete - stergem clientii cu un nume dat ca parametru
-        [HttpDelete("api/[controller]")]
+        [HttpDelete]
         [Authorize("Admin")]
         public async Task<IActionResult> DeleteClient(int id)
         {

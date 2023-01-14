@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
+    [Route("api/authorization")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -19,14 +20,16 @@ namespace Proiect.Controllers
             _authManager = authManager;
         }
 
-        [HttpPost("api/[controller]/Register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
         {
             var result = await _authManager.Register(registerModel);
+            Console.Write("Result: ");
+            Console.WriteLine(_authManager);
             return result ? Ok(result) : BadRequest(result);
         }
 
-        [HttpPost("api/[controller]/Login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
             var result = await _authManager.Login(loginModel);
@@ -35,6 +38,13 @@ namespace Proiect.Controllers
                 return Ok(result);
             else
                 return BadRequest("Failed to login");
+        }
+
+        [HttpPost("Refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshModel refreshModel)
+        {
+            var result = await _authManager.Refresh(refreshModel);
+            return !result.Contains("Bad") ? Ok(result) : BadRequest("Failed to refresh");
         }
     }
 }
