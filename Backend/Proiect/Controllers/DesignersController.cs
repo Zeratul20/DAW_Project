@@ -51,7 +51,7 @@ namespace Proiect.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAllDesigner()
         {
-            var designers = await _context.Designers.ToListAsync();
+            var designers = await _context.Designers.Include(x => x.DesignerAddress).Include(x => x.DesignerClients).ToListAsync();
 
             return Ok(designers);
         }

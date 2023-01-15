@@ -49,7 +49,7 @@ namespace Proiect.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAllClients()
         {
-            var clients = await _context.Clients.OrderBy(x => x.Name).ToListAsync();
+            var clients = await _context.Clients.OrderBy(x => x.Name).Include(x => x.ClientAddress).Include(x => x.DesignerClients).ToListAsync();
 
             return Ok(clients);
         }
