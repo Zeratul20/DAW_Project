@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Proiect.DAL;
 using Proiect.DAL.Entities;
 using Proiect.DAL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -77,15 +76,10 @@ namespace Proiect.Controllers
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] string phone)
         {
             var client = await _context.Clients.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-
             client.Phone = phone; // nr de telefon introdus de noi
-
             _context.Entry(client).State = EntityState.Modified;
-
             await _context.SaveChangesAsync();
-
             var client2 = await _context.Clients.FirstOrDefaultAsync(x => x.Id == id);
-
             return Ok();
         }
 
@@ -96,16 +90,10 @@ namespace Proiect.Controllers
         public async Task<IActionResult> DeleteClient(int id)
         {
             var client = await _context.Clients.FirstOrDefaultAsync(x => x.Id == id);
-
             if (client == null)
-            {
                 return NotFound($"Client with Id = {id} not found");
-            }
-
             _context.Clients.Remove(client);
-
             await _context.SaveChangesAsync();
-
             return Ok();
         }
     }

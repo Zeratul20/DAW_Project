@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Proiect.BLL.Interfaces;
 using Proiect.BLL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
-    [Route("api/authorization")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -38,13 +35,6 @@ namespace Proiect.Controllers
                 return Ok(result);
             else
                 return BadRequest("Failed to login");
-        }
-
-        [HttpPost("Refresh")]
-        public async Task<IActionResult> Refresh([FromBody] RefreshModel refreshModel)
-        {
-            var result = await _authManager.Refresh(refreshModel);
-            return !result.Contains("Bad") ? Ok(result) : BadRequest("Failed to refresh");
         }
     }
 }

@@ -1,31 +1,20 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Proiect.DAL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Text.Json.Serialization;
-using System.Data.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Proiect.DAL.Entities;
 using Proiect.BLL.Managers;
 using Proiect.BLL.Interfaces;
-using Proiect.BLL.Helpers;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace Proiect
 {
@@ -57,7 +46,6 @@ namespace Proiect
             var connectionString = Configuration.GetConnectionString("ConnString");
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
             services.AddTransient<IAuthManager, AuthManager>();
-            services.AddTransient<ITokenHelper, TokenHelper>();
             services.AddTransient<InitialSeed>();
 
             services.AddSwaggerGen(c =>

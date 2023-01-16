@@ -305,9 +305,6 @@ namespace Proiect.DAL.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("text");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 

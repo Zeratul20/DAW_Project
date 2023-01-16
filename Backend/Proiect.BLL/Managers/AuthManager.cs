@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Proiect.BLL.Helpers;
 using Proiect.BLL.Interfaces;
 using Proiect.DAL.Entities;
 using Proiect.BLL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Proiect.BLL.Managers
@@ -15,15 +11,13 @@ namespace Proiect.BLL.Managers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly ITokenHelper _tokenHelper;
 
         public AuthManager(UserManager<User> userManager,
-            SignInManager<User> signInManager,
-            ITokenHelper tokenHelper)
+            SignInManager<User> signInManager
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _tokenHelper = tokenHelper;
         }
 
         public async Task<LoginResult> Login(LoginModel loginModel)
@@ -39,17 +33,11 @@ namespace Proiect.BLL.Managers
                 var result = await _signInManager.CheckPasswordSignInAsync(user, loginModel.Password, false);
                 if (result.Succeeded)
                 {
-                    var token = await _tokenHelper.CreateAccessToken(user);
-                    var refreshToken = _tokenHelper.CreateRefreshToken();
-
-                    user.RefreshToken = refreshToken;
                     await _userManager.UpdateAsync(user);
 
                     return new LoginResult
                     {
                         Success = true,
-                        AccessToken = token,
-                        RefreshToken = refreshToken
                     };
                 }
                 else
@@ -87,21 +75,6 @@ namespace Proiect.BLL.Managers
             {
                 return false;
             }
-        }
-
-        public async Task<string> Refresh(RefreshModel refreshModel)
-        {
-            var principal = _tokenHelper.GetPrincipalFromExpiredToken(refreshModel.AccessToken);
-            var username = principal.Identity.Name;
-
-            var user = await _userManager.FindByEmailAsync(username);
-
-            if (user.RefreshToken != refreshModel.RefreshToken)
-                return "Bad Refresh";
-
-            var newJwtToken = await _tokenHelper.CreateAccessToken(user);
-
-            return newJwtToken;
         }
     }
 }

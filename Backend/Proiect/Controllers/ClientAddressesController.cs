@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Proiect.DAL;
 using Proiect.DAL.Entities;
 using Proiect.DAL.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -67,17 +65,11 @@ namespace Proiect.Controllers
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] int zipcode)
         {
             var address = await _context.ClientAddresses.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-
             address.Zipcode = zipcode; // zipcode-ul introdus de noi
-
             _context.ClientAddresses.Attach(address);
-
             _context.Entry(address).State = EntityState.Modified;
-
             await _context.SaveChangesAsync();
-
             var address2 = await _context.ClientAddresses.FirstOrDefaultAsync(x => x.Id == id);
-
             return Ok();
         }
 

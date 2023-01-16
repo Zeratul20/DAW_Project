@@ -1,12 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proiect.DAL;
 using Proiect.DAL.Entities;
 using Proiect.DAL.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -70,15 +66,10 @@ namespace Proiect.Controllers
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] string name)
         {
             var designer = await _context.Designers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-
             designer.Name = name; // numele introdus de noi
-
             _context.Entry(designer).State = EntityState.Modified;
-
             await _context.SaveChangesAsync();
-
             var designerV2 = await _context.Designers.FirstOrDefaultAsync(x => x.Id == id);
-
             return Ok();
         }
 
@@ -94,9 +85,7 @@ namespace Proiect.Controllers
             }
 
             _context.Designers.Remove(designer);
-
             await _context.SaveChangesAsync();
-
             return Ok();
         }
 

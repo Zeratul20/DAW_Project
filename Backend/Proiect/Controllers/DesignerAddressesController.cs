@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Proiect.DAL;
 using Proiect.DAL.Entities;
 using Proiect.DAL.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -68,21 +66,15 @@ namespace Proiect.Controllers
         public async Task<IActionResult> Update([FromQuery] int id, [FromQuery] int zipcode)
         {
             var address = await _context.DesignerAddresses.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-
-            address.Zipcode = zipcode; // zipcode-ul introdus de noi
-            
+            address.Zipcode = zipcode; // zipcode-ul introdus de noi 
             _context.DesignerAddresses.Attach(address);
-            
             _context.Entry(address).State = EntityState.Modified;
-            
             await _context.SaveChangesAsync();
-            
             var address2 = await _context.DesignerAddresses.FirstOrDefaultAsync(x => x.Id == id);
-            
             return Ok();
         }
 
-        // Delete - stergem adresele designerilor care au peste 50 de ani
+        // Delete - stergem adresele designerilor care au peste 40 de ani
         [HttpDelete]
         [Authorize("Admin")]
         public async Task<IActionResult> DeleteAddress()
@@ -90,12 +82,12 @@ namespace Proiect.Controllers
             var addresses = await _context
                  .DesignerAddresses
                  .Include(x => x.Designer)
-                 .Where(x => x.Designer.Age > 50)
+                 .Where(x => x.Designer.Age > 40)
                  .ToListAsync();
 
             if ( addresses == null)
             {
-                return NotFound("Designer with age > 50 not found");
+                return NotFound("Designer with age > 40 not found");
             }
 
             foreach (var ad in addresses)

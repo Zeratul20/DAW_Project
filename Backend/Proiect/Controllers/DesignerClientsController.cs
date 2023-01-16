@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Proiect.DAL;
 using Proiect.DAL.Entities;
 using Proiect.DAL.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -62,19 +60,14 @@ namespace Proiect.Controllers
         public async Task<IActionResult> Update([FromQuery] int id)
         {
             var client = await _context.DesignerClients.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-            
             _context.DesignerClients.Attach(client);
-            
             _context.Entry(client).State = EntityState.Modified;
-            
             await _context.SaveChangesAsync();
-            
             var address2 = await _context.DesignerClients.FirstOrDefaultAsync(x => x.Id == id);
-            
             return Ok();
         }
 
-        // Delete - stergem adresele designerilor care au peste 50 de ani
+        // Delete - stergem adresele designerilor care au peste 40 de ani
         [HttpDelete]
         [Authorize("Admin")]
         public async Task<IActionResult> DeleteClient()
@@ -82,13 +75,11 @@ namespace Proiect.Controllers
             var clients = await _context
                  .DesignerClients
                  .Include(x => x.Designer)
-                 .Where(x => x.Designer.Age > 50)
+                 .Where(x => x.Designer.Age > 40)
                  .ToListAsync();
 
             if ( clients == null)
-            {
-                return NotFound("Designer with age > 50 not found");
-            }
+                return NotFound("Designer with age > 40 not found");
 
             foreach (var client in clients)
             {
