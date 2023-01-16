@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Proiect.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/designers")]
     [ApiController]
     public class DesignersController : ControllerBase
     {
