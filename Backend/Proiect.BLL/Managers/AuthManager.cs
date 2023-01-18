@@ -11,13 +11,17 @@ namespace Proiect.BLL.Managers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ITokenHelper _tokenHelper;
+
 
         public AuthManager(UserManager<User> userManager,
-            SignInManager<User> signInManager
+            SignInManager<User> signInManager,
+            ITokenHelper tokenHelper
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _tokenHelper = tokenHelper;
         }
 
         public async Task<LoginResult> Login(LoginModel loginModel)
@@ -33,11 +37,13 @@ namespace Proiect.BLL.Managers
                 var result = await _signInManager.CheckPasswordSignInAsync(user, loginModel.Password, false);
                 if (result.Succeeded)
                 {
+                    var token = await _tokenHelper.CreateAccessToken(user);
                     await _userManager.UpdateAsync(user);
 
                     return new LoginResult
                     {
                         Success = true,
+                        AccessToken = token,
                     };
                 }
                 else

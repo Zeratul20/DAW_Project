@@ -15,6 +15,7 @@ using System.Text;
 using Proiect.DAL.Entities;
 using Proiect.BLL.Managers;
 using Proiect.BLL.Interfaces;
+using Proiect.BLL.Helpers;
 
 namespace Proiect
 {
@@ -32,6 +33,8 @@ namespace Proiect
         public void ConfigureServices(IServiceCollection services)
         {
 
+            Console.WriteLine("ENTERED HERE STARTUP");
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: SpecificOrigins,
@@ -46,6 +49,7 @@ namespace Proiect
             var connectionString = Configuration.GetConnectionString("ConnString");
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
             services.AddTransient<IAuthManager, AuthManager>();
+            services.AddTransient<ITokenHelper, TokenHelper>();
             services.AddTransient<InitialSeed>();
 
             services.AddSwaggerGen(c =>
@@ -76,13 +80,10 @@ namespace Proiect
                 });
             });
 
-
-
             // identity
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-
             services
                 .AddAuthentication(options =>
                 {
@@ -103,17 +104,9 @@ namespace Proiect
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
-                    options.Events = new JwtBearerEvents
-                    {
-                        OnAuthenticationFailed = context =>
-                        {
-                            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-                            {
-                                context.Response.Headers.Add("Token-Expired", "true");
-                            }
-                            return Task.CompletedTask;
-                        }
-                    };
+
+                    Console.WriteLine("SECRET TOKEN: ");
+                    Console.WriteLine(secret);
                 });
 
 
@@ -128,6 +121,8 @@ namespace Proiect
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, InitialSeed initialSeed)
         {
+            Console.WriteLine("ARIVED HERE STARTUP");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
