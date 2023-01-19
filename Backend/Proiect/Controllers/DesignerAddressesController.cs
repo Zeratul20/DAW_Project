@@ -48,7 +48,7 @@ namespace Proiect.Controllers
         // Get-join  - afiseaza adresa designerilor care au numele introdus de noi
         [HttpGet("get-join/{nume}")]
         // [Authorize("Admin")]
-        // [Authorize("Designer")]
+        [Authorize("Designer")]
         public async Task<IActionResult> GetDesignerAddressJoin([FromRoute] string nume)
         {
             var addresses = await _context
