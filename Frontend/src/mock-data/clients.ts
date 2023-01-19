@@ -2,7 +2,7 @@ import { Clients } from "../state";
 
 export const clients: Clients = {
   client1: {
-    id: "h&m",
+    id: "12",
     name: "H&M",
     phone: "111-222-333",
     address: {
@@ -12,7 +12,7 @@ export const clients: Clients = {
     },
   },
   client2: {
-    id: "c&a",
+    id: "13",
     name: "C&A",
     phone: "222-333-444",
     address: {
@@ -22,7 +22,7 @@ export const clients: Clients = {
     },
   },
   client3: {
-    id: "ccc",
+    id: "14",
     name: "CCC",
     phone: "333-444-555",
     address: {

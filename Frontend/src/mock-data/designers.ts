@@ -2,7 +2,7 @@ import { Designers } from "../state";
 
 export const designers: Designers = {
   designer1: {
-    id: "coco",
+    id: "2",
     name: "Coco Chanel",
     age: 50,
     gender: "F",
@@ -13,7 +13,7 @@ export const designers: Designers = {
     },
   },
   designer2: {
-    id: "donna",
+    id: "3",
     name: "Donna Karan",
     age: 37,
     gender: "F",
@@ -24,7 +24,7 @@ export const designers: Designers = {
     },
   },
   designer3: {
-    id: "giorgio",
+    id: "4",
     name: "Giorgio Armani",
     age: 40,
     gender: "M",

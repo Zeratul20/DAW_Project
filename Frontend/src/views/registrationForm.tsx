@@ -8,15 +8,15 @@ export const RegistrationForm: view = ({
   updateSubmitted = update.dashboard.registration.submitted,
   submitted = get.dashboard.registration.submitted,
 }) => {
-  const handleUsernameChange = (event) => {
-    updateUsernameInput.set(event.target.value);
+  const handleUsernameChange = ({target}:{target:{value:String}}) => {
+    updateUsernameInput.set(target.value);
   };
 
-  const handlePasswordChange = (event) => {
-    updatePasswordInput.set(event.target.value);
+  const handlePasswordChange = ({target}:{target:{value:String}}) => {
+    updatePasswordInput.set(target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log("Username before: ", !usernameInput.value());
     if (!usernameInput.value() || !passwordInput.value())

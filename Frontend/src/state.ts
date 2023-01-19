@@ -1,7 +1,7 @@
 export type State = {
-  designers: { items: Designers; triggers: number };
-  clients: { items: Clients; triggers: number };
-  collections: { items: Collections; triggers: number };
+  designers: Designers;
+  clients: Clients;
+  collections: Collections;
   dashboard: {
     registration: {
       usernameInput: string;
@@ -9,6 +9,7 @@ export type State = {
       submitted: boolean;
     };
     login: { usernameInput: string; passwordInput: string; submitted: boolean };
+    selectedMenu: string;
   };
 };
 
