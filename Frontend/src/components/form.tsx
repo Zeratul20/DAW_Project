@@ -1,13 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
-export const Form: view = ({ data }) => {
+export const Form: view = ({ data, type }) => {
   return (
     <div>
-      <h3>Add a designer</h3>
+      <h3>Add a {type}</h3>
       <Box
         component="form"
         sx={{
@@ -33,8 +33,9 @@ export const Form: view = ({ data }) => {
           ));
         })}
       </Box>
-      <Stack spacing={2} direction="row"></Stack>
-      <Button variant="outlined">Add</Button>
+      <Stack spacing={2} direction="row">
+        <Button variant="outlined">Add</Button>
+      </Stack>
     </div>
   );
 };
