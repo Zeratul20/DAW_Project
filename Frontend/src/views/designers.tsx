@@ -54,7 +54,7 @@ export const Designers: view = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Form data={firstDesigner} type="designer" key={firstDesigner}/>
+      <Form data={firstDesigner} type="designer" key={firstDesigner} />
       {/* <Button></Button> */}
     </div>
   );

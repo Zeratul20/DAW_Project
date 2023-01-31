@@ -10,6 +10,8 @@ export type State = {
     };
     login: { usernameInput: string; passwordInput: string; submitted: boolean };
     selectedMenu: string;
+    desginerInput: Designer;
+    clientInput: Client;
   };
 };
 
