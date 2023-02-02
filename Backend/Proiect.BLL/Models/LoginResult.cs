@@ -1,6 +1,4 @@
-﻿
-
-namespace Proiect.BLL.Models
+﻿namespace Proiect.BLL.Models
 {
     public class LoginResult
     {
