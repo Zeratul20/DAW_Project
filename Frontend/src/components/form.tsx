@@ -7,8 +7,12 @@ import Button from "@mui/material/Button";
 export const Form: view = ({
   data,
   type,
-  designerInput = update.dashboard.designerInput,
-  getDesignerInput = get.dashboard.designerInput,
+  designerInput = update.dashboard.designerAdd.designerInput,
+  getDesignerInput = get.dashboard.designerAdd.designerInput,
+  updateDesignerSubmitted = update.dashboard.designerAdd.submitted,
+  clientInput = update.dashboard.clientAdd.clientInput,
+  getClientInput = get.dashboard.clientAdd.clientInput,
+  updateClientSubmitted = update.dashboard.clientAdd.submitted,
 }) => {
   const handleChange = ({ target }: any) => {
     if (type === "designer") {
@@ -21,14 +25,41 @@ export const Form: view = ({
         let newObj: any = {};
         if (!getDesignerInput.value()["address"]) newObj = { address: {} };
         else newObj = getDesignerInput.value();
-        console.log("New Addr OPbj: ", newObj["address"]);
         let prop = target.id.split(" ")[1];
         newObj["address"][prop] = target.value;
         designerInput.set({ ...getDesignerInput.value(), ...newObj });
         console.log("Form Address Input: ", getDesignerInput.value());
       }
+    } else if (type === "client") {
+      if (!target.id.startsWith("address")) {
+        let newObj: any = {};
+        newObj[target.id] = target.value;
+        clientInput.set({ ...getClientInput.value(), ...newObj });
+        console.log("Form Input: ", getClientInput.value());
+      } else {
+        let newObj: any = {};
+        if (!getClientInput.value()["address"]) newObj = { address: {} };
+        else newObj = getClientInput.value();
+        let prop = target.id.split(" ")[1];
+        newObj["address"][prop] = target.value;
+        clientInput.set({ ...getClientInput.value(), ...newObj });
+        console.log("Form Address Input: ", getClientInput.value());
+      }
     }
   };
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    if (type === "designer") {
+      updateDesignerSubmitted.set(true);
+      console.log("Designer added!");
+    }
+    if (type === "client") {
+      updateClientSubmitted.set(true);
+      console.log("Client added!");
+    }
+  };
+
   return (
     <div>
       <h3>Add a {type}</h3>
@@ -67,7 +98,7 @@ export const Form: view = ({
         })}
       </Box>
       <Stack spacing={2} direction="row">
-        <Button type="submit" variant="outlined">
+        <Button type="submit" onClick={handleSubmit} variant="outlined">
           Add
         </Button>
       </Stack>
